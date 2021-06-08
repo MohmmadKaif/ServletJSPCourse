@@ -29,6 +29,8 @@ In url pattern give the name which gave to the action tag in your form in your .
 For this see below.....
 
   -->
+
+<!--> This is our first Servlet<-->
 <servlet>
   
   <servlet-name>first</servlet-name>
@@ -43,5 +45,27 @@ For this see below.....
   <url-pattern>/add</url-pattern>
   
  </servlet-mapping>
+ 
+ 
+ <!--> 
+ This is our second Servlet.....
+ This servlet will be called from the firat servlet....
+ <-->
+ 
+ <servlet>
+  
+  <servlet-name>second</servlet-name>
+  <servlet-class>Mohammad.Squre</servlet-class>
+  
+ </servlet> 
+  
+ 
+ <servlet-mapping>
+  
+  <servlet-name>second</servlet-name>
+  <url-pattern>/sq</url-pattern>
+
+ </servlet-mapping>
+ 
  
 </web-app>

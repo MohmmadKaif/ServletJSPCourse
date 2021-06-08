@@ -1,7 +1,8 @@
 package Mohammad;
 import java.io.IOException;
-import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,20 +15,32 @@ import javax.servlet.http.HttpServletResponse;
 */
 public class Addition extends HttpServlet      
 {
- public void service(HttpServletRequest req,HttpServletResponse res) throws IOException 
+ public void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException 
  {
    int i=Integer.parseInt(req.getParameter("num1"));
    int j= Integer.parseInt( req.getParameter("num2"));
    
    /*
-    *  Now to print our answer on output screen what we do is create an object of class PrintWriter.
-    *  This is done with the help getWriter method which is called using response object...
-    *  Below is the demonstration for this
-    */
+    *Here we are calling a different servlet in this servlet.....
+    *The first thing to do is to set the attributes which we want to send to the another servlet....
+    *To do so we use a method called setAttributes which is called using the object of HttpServletRequest object...
+    *This is how we do it...see below.....*/
    
-   PrintWriter out=res.getWriter();
-   out.println( i+j );
-   System.out.println(i+j);
- }
+   int ans= i+j;
+   
+   req.setAttribute(  "ans",ans);
+   
+   /*
+    * Now to call the servlet we will use the object of RequestDispatcher
+   *This is how we create the object of RequestDispatcher...
+    */
+   RequestDispatcher rd= req.getRequestDispatcher("sq" );
+   /*
+    * Now we are done creating the RequestDispatcher object.
+    * Now we will forward this to the servlet which we want to call..
+    * And this is how we do it........*/
+      rd.forward(req, res);
+   
+    }
 	
 }
