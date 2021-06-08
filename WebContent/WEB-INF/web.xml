@@ -26,7 +26,7 @@ In servlet name we will give the same name which we gave oin servlet tag.
 In url pattern give the name which gave to the action tag in your form in your .html file.
 
 
-for reference see below.... 
+For this see below.....
 
   -->
 <servlet>
