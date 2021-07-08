@@ -6,20 +6,23 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class Squre extends HttpServlet
 {
 public void doGet( HttpServletRequest req, HttpServletResponse res) throws IOException
 {
-  /*
-   * The Addition Servlet will redirect us to this servlet.
-   * Thus here we will extract the data sent by Addition Servlet using the getParameter()method
-   * Below is the demonstration given for the same....*/
-
+    //Now this is the servlet which will be called by the Addition Servlet....
+	//First we will create the object of HttpSession....
 	
+	//Below line of Code crates the object of HttpSession using the getSesion()method as it is an interface....
+	HttpSession session= req.getSession();
+	//Now we will get the attributes which were sent by Addition Servlet...
+	int RD=(int)session.getAttribute("ans");
 	
+	System.out.println( RD );
 	
-	int RD=Integer.parseInt(req.getParameter("ans"));//Here we are extracting the data which was sent by addition servlet in the form of url....  
+    
 	PrintWriter out= res.getWriter();//Creating the object of PrintWriter....
     out.println( RD );//Printing the value of RD on webpage...
     int ans= RD*RD;//Sqauring the value..

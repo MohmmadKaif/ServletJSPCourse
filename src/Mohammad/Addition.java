@@ -1,11 +1,11 @@
 package Mohammad;
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 /*
@@ -19,16 +19,19 @@ public class Addition extends HttpServlet
  {
    int i=Integer.parseInt(req.getParameter("num1"));
    int j= Integer.parseInt( req.getParameter("num2"));
+   int ans= i+j;
    
    /*
-    * Here instead of using objext of requestDispatche we are using a sendRedirectMethod to call the sqaure servlet....
-    * This is done using URL rewirting that you can see below...*/
+    * In this is example we will be demonstrating the concept of HttpSession...
+    * Using HttpSession we can navigate to a another Servlet...
+    * Below is given the demonstration for the same..*/
    
-   int ans= i+j;
-   //The line of code written below calls the servlet by passing the URL....
-   res.sendRedirect("sq?ans="+ans);//Here if you look closely to the argument we are passing a new URL to the another servlet, this is called ad URL rewritting...  
-   
-   
-    }
+   //Here we are creating the object of HttpSession using getSession() method as it is an interface....
+   HttpSession session= req.getSession();
+   //Now we will set the attribute of HttpSession object....
+   session.setAttribute("ans",ans);    
+   res.sendRedirect("sq");//Here we are calling the square servlet.....
+    
+ }
 	
 }
