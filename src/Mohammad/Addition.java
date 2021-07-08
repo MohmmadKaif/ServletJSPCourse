@@ -15,31 +15,19 @@ import javax.servlet.http.HttpServletResponse;
 */
 public class Addition extends HttpServlet      
 {
- public void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException 
+ public void doGet(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException 
  {
    int i=Integer.parseInt(req.getParameter("num1"));
    int j= Integer.parseInt( req.getParameter("num2"));
    
    /*
-    *Here we are calling a different servlet in this servlet.....
-    *The first thing to do is to set the attributes which we want to send to the another servlet....
-    *To do so we use a method called setAttributes which is called using the object of HttpServletRequest object...
-    *This is how we do it...see below.....*/
+    * Here instead of using objext of requestDispatche we are using a sendRedirectMethod to call the sqaure servlet....
+    * This is done using URL rewirting that you can see below...*/
    
    int ans= i+j;
+   //The line of code written below calls the servlet by passing the URL....
+   res.sendRedirect("sq?ans="+ans);//Here if you look closely to the argument we are passing a new URL to the another servlet, this is called ad URL rewritting...  
    
-   req.setAttribute(  "ans",ans);
-   
-   /*
-    * Now to call the servlet we will use the object of RequestDispatcher
-   *This is how we create the object of RequestDispatcher...
-    */
-   RequestDispatcher rd= req.getRequestDispatcher("sq" );
-   /*
-    * Now we are done creating the RequestDispatcher object.
-    * Now we will forward this to the servlet which we want to call..
-    * And this is how we do it........*/
-      rd.forward(req, res);
    
     }
 	
