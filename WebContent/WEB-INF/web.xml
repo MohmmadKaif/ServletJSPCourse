@@ -36,6 +36,22 @@ For this see below.....
   <servlet-name>first</servlet-name>
   <servlet-class>Mohammad.Addition</servlet-class>
   
+ 
+ <!-- 1) Here we are demonstrating the servlet-config......
+      2) init-param is used for setting some initial values in serlets eg file path, sql url, etc .....
+      3) Below is the syntax....
+  -->
+  
+  <!--> 
+ This is our second Servlet.....
+ This servlet will be called from the firat servlet....
+ <-->
+  
+  <init-param>
+<param-name>login-id</param-name>
+ 
+ <param-value>DT20218070307</param-value>
+</init-param>
  </servlet> 
   
  
@@ -44,19 +60,22 @@ For this see below.....
   <servlet-name>first</servlet-name>
   <url-pattern>/add</url-pattern>
   
+
+ 
+ 
  </servlet-mapping>
  
  
- <!--> 
- This is our second Servlet.....
- This servlet will be called from the firat servlet....
- <-->
+ 
  
  <servlet>
   
   <servlet-name>second</servlet-name>
   <servlet-class>Mohammad.Squre</servlet-class>
   
+
+
+
  </servlet> 
   
  
@@ -69,18 +88,9 @@ For this see below.....
  
  
  
- <!-- 1) Here we are demonstrating the context-param ......
-      2) context-param is used for setting some initial values in serlets eg file path, sql url, etc .....
-      3) Below is the syntax....
-  -->
  
- <context-param>
  
- <param-name>login-id</param-name>
  
- <param-value>DT20218070307</param-value>
- 
- </context-param>
  
  
  
