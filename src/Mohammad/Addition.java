@@ -2,10 +2,10 @@ package Mohammad;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 
 /*
@@ -17,21 +17,21 @@ public class Addition extends HttpServlet
 {
  public void doGet(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException 
  {
-   int i=Integer.parseInt(req.getParameter("num1"));
-   int j= Integer.parseInt( req.getParameter("num2"));
-   int ans= i+j;
+   long i=Integer.parseInt(req.getParameter("num1"));
+   long j= Integer.parseInt( req.getParameter("num2"));
+   
+   long r= i+j;
    
    /*
-    * In this is example we will be demonstrating the concept of HttpSession...
-    * Using HttpSession we can navigate to a another Servlet...
-    * Below is given the demonstration for the same..*/
+    * Here in this example we will be demonstrating the concept of Cookie...
+    * Whenever a Servlets wants to call a Servlet we can use Cookie to send the data to client and then client will make the request to the   another aervlet..*/
    
-   //Here we are creating the object of HttpSession using getSession() method as it is an interface....
-   HttpSession session= req.getSession();
-   //Now we will set the attribute of HttpSession object....
-   session.setAttribute("ans",ans);    
-   res.sendRedirect("sq");//Here we are calling the square servlet.....
-    
- }
+   Cookie cookie = new Cookie( "res", r + "" );//Here we are making the Cookie Object...
+                                               //The Constructor of Cookie class takes two arguments one being the data name and other being the data.You can give any name to your data.....
+   
+   res.addCookie(cookie);//Adding cookie to the response object so that we can send it to client...
+   
+   res.sendRedirect("sq");//Here we are sending a redirect request to square servlet...
+  }
 	
 }
