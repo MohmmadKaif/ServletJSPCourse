@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 public class Squre extends HttpServlet
 {
 public void doGet( HttpServletRequest req, HttpServletResponse res) throws IOException
-{
+{    
 	Cookie cookies[]=req.getCookies();
 	long RD=0;
 	
