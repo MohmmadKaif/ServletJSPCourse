@@ -3,12 +3,28 @@
 
  
  
+ <servlet>
+ <servlet-name>Addition</servlet-name>
+ <servlet-class>Mohammad.Addition</servlet-class>
+ </servlet>
  
+<servlet-mapping>
+   <servlet-name>Addition</servlet-name>
+   <url-pattern>/add</url-pattern>
+</servlet-mapping>
+
+
+
  
+ <servlet>
+ <servlet-name>Square</servlet-name>
+ <servlet-class>Mohammad.Squre</servlet-class>
+ </servlet>
  
- 
- 
- 
+<servlet-mapping>
+   <servlet-name>Square</servlet-name>
+   <url-pattern>/sq</url-pattern>
+</servlet-mapping>
  
  
 </web-app>

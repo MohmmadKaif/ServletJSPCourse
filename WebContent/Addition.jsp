@@ -1,9 +1,17 @@
 <!-- 
-In this example we will be demonstrating the Exception Handelling using error pages in JSP.. 
+In this example we will be demonstrating taglib directive... 
 -->
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"  errorPage="error.jsp"%><!-- Here we are using errorPage Attribute in order to call error.jsp whenever we encounter an excpetion.. -->
+    pageEncoding="UTF-8" %>
+
+<%@taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core" %><!--This is how we use taglib.-->
+
+<!-- 
+1) There are two attributes i.e prefix and uri.... whatever character or string you put in prefix your JSTL tag will start with that character or string..
+2) In uri you basically put which JSTL library you will be using.. in this example we are using core...
+-->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,15 +19,14 @@ In this example we will be demonstrating the Exception Handelling using error pa
 <title>Insert title here</title>
 </head>
 <body>
+<!-- Here we will be outputting a string using JSTL library -->
+<c:out value="HELLO.. WELCOME TO JSTL TAG"></c:out>
 
-<!--   
-1) This is the demonstration of Exception Handeling in JSP...
-2) Though we can use try and catch blocks using JSP but to have a web page in response we use something called as error pages in JSP...
-3) Below is the demonstration for it...  
--->
-  <%
-      int a=9/0;  // This line will throw an exception...To handle this Exception we will create a new JSP page by a name of eror.jsp  
-      out.println(a);
-  %>
+<!-- For if we have to use Expression Language as seen below... -->
+<c:if test="${ 3<7 }">
+<h1> If Statement sucessfully executed... </h1>
+</c:if>
+
+
 </body>
 </html>

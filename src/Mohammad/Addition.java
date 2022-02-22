@@ -2,6 +2,7 @@ package Mohammad;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -22,22 +23,21 @@ import javax.servlet.http.HttpServletResponse;
 	//It makes the devolopment easy as we dont have to set up xml file file and annottions will handle every thing..
 	//Given below is the demonstration of servlet annotations...
 
-@WebServlet("/add")
+//@WebServlet("/add")
 public class Addition extends HttpServlet      
 {
- public void doGet(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException 
+ public void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException 
  {
-	    long i= Integer.parseInt(req.getParameter("num1"));
-		long j=Integer.parseInt(req.getParameter("num2"));
-		  
-		  
-		
-		  Cookie cookie= new Cookie( "ans", (i+j)+ "" );
-	    res.addCookie(cookie); 	
-		
-	    res.sendRedirect("sq");
-	  
-  
+     int i=Integer.parseInt(req.getParameter("num1"));
+     int j=Integer.parseInt(req.getParameter( "num2" ));
+     int sum=i+j;
+     String s=sum+"";
+     req.setAttribute("sum", s);
+     PrintWriter out= res.getWriter();
+     RequestDispatcher rd = req.getRequestDispatcher("sq");
+     rd.forward(req, res);
+     //out.println("<a href=sq?sum="+s+">kfkdsgfkagf</a>");
+     
  }
 	
 }
