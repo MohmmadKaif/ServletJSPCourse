@@ -1,0 +1,28 @@
+*{
+   margin:0;
+   padding:0;
+   box-sizing:border-box;     
+ }
+.elements{
+	display:flex;
+	background-color:red;
+    margin:20px;
+	width:1500px;
+	height:1500px;
+	align-items:center;
+	justify-content:center;
+	
+}
+.inner{
+	
+	height:700px;
+	width:700px;
+    background-color:green; 
+    color: white;
+	flex-wrap:wrap;
+	font-size:20px;
+	  
+	 
+}
+
+

@@ -3,7 +3,7 @@
 
  
  
- <servlet>
+<!--  <servlet>
  <servlet-name>Addition</servlet-name>
  <servlet-class>Mohammad.Addition</servlet-class>
  </servlet>
@@ -25,6 +25,6 @@
    <servlet-name>Square</servlet-name>
    <url-pattern>/sq</url-pattern>
 </servlet-mapping>
- 
+  -->
  
 </web-app>
